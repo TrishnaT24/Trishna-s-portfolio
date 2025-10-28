@@ -1,7 +1,9 @@
-import React from 'react'
+
+import React from 'react';
+import { motion } from 'framer-motion';
 
 function Achievements() {
-  const interests = [
+  const interests  = [
     {
       title: "Coding",
       description: "Solved 900+ DSA and CP problems on various platforms with optimized time and space complexity."
@@ -17,43 +19,28 @@ function Achievements() {
   ]
 
   return (
-    <div className="min-h-screen bg-black py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8">
-            <span className="bg-gradient-to-r from-slate-400 to-blue-400 bg-clip-text text-transparent">
-              Key Interests
-            </span>
-          </h1>
-        </div>
-        
-        {/* Interests Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-20 bg-black">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-12">
+          <span className="bg-gradient-to-r from-slate-500 to-blue-300 bg-clip-text text-transparent">Key Interests</span>
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {interests.map((interest, index) => (
-            <div 
-              key={index} 
-              className="bg-gray-900 rounded-xl p-8 text-white shadow-2xl border border-gray-800 hover:scale-[1.03] hover:shadow-3xl transition-all duration-300 hover:border-gray-700 group"
+            <motion.div
+              key={index}
+              className="bg-gray-900 p-6 rounded-lg group"
+              whileHover={{ scale: 1.02 }}
             >
-              {/* Card Header */}
-              <div className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
-                  {interest.title}
-                </h2>
-              </div>
-              
-              {/* Card Description */}
-              <div>
-                <p className="text-base md:text-lg leading-relaxed text-teal-600 font-normal">
-                  {interest.description}
-                </p>
-              </div>
-            </div>
+              <h2 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors mb-3">
+                {interest.title}
+              </h2>
+              <p className="text-sm sm:text-base text-teal-600">{interest.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
-  )
+    </section>
+  );
 }
 
-export default Achievements
+export default Achievements;

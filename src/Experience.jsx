@@ -1,7 +1,12 @@
+
+
+
+
 import React from "react";
+import { motion } from "framer-motion";
 
 function Experience() {
-  const experiences = [
+   const experiences = [
     {
       title: "Cyber Security Intern",
       subtitle: "Tata Consultancy Services (TCS)",
@@ -16,43 +21,47 @@ function Experience() {
     },
   ];
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: index * 0.2 },
+    }),
+    hover: {
+      scale: 1.02, // Reduced for mobile
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+      transition: { duration: 0.3 },
+    },
+  };
+
   return (
-    <div className="bg-black min-h-screen py-16 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
+    <div>
+      <div className="bg-black flex flex-col px-4 pt-8 min-h-screen">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-800 mb-8 sm:mb-12">
             <span className="bg-gradient-to-r from-slate-400 to-blue-400 bg-clip-text text-transparent">
               My Experience
             </span>
           </h1>
-        </div>
-
-        {/* Experience Cards */}
-        <div className="flex flex-col gap-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 rounded-xl p-8 text-white shadow-2xl border border-gray-800 hover:scale-[1.02] hover:shadow-3xl transition-all duration-300 hover:border-gray-700"
-            >
-              {/* Card Header */}
-              <div className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-left mb-3 text-white">
-                  {exp.title}
-                </h2>
-                <h3 className="text-lg md:text-xl text-left font-medium text-blue-400 mb-4">
-                  {exp.subtitle}
-                </h3>
-              </div>
-              
-              {/* Card Description */}
-              <div className="text-left">
-                <p className="text-base md:text-lg leading-relaxed text-white font-normal">
-                  {exp.description}
-                </p>
-              </div>
-            </div>
-          ))}
+          <div className="flex flex-col gap-4 sm:gap-6 max-w-2xl mx-auto w-full">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-900 rounded-lg p-4 sm:p-6 text-white shadow-lg"
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                whileHover="hover"
+                custom={index}
+              >
+                <h2 className="text-xl sm:text-2xl font-bold mb-2 text-center sm:text-left">{exp.title}</h2>
+                <h3 className="text-base sm:text-lg text-blue-400 mb-3 sm:mb-4 text-center sm:text-left">{exp.subtitle}</h3>
+                <p className="text-sm sm:text-base leading-relaxed">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

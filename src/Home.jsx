@@ -81,7 +81,7 @@ return (
     {/* Overlay to ensure text is visible */}
     <div className="absolute inset-0 bg-black/20"></div>
     
-    <div className="max-w-4xl mx-auto text-center relative z-10">
+    <div className="w-full max-w-7xl mx-auto text-center relative z-10 px-4 sm:px-6 lg:px-8">
       <h1 className="text-5xl md:text-7xl font-bold mb-6">
         <span className="bg-gradient-to-r from-slate-500 to-blue-300 bg-clip-text text-transparent">Trishna Tiwari</span>
       </h1>
@@ -179,3 +179,7 @@ return (
 }
 
 export default Home;
+
+
+
+
