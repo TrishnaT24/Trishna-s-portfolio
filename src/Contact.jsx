@@ -47,7 +47,7 @@ function Contact() {
           {/* Email */}
           <div className="group relative">
             <a
-              href="/Trishna_Tiwari_Resume.pdf" // Replace with your actual resume file path
+              href="/Trishna_Tiwari_Resume.pdf" 
               download="Trishna_Tiwari_Resume.pdf"
               className="flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-green-500/20 hover:border-green-400/50 transition-all duration-300 hover:scale-110"
             >
